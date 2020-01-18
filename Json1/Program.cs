@@ -13,7 +13,7 @@ namespace Json_Task
 
             json obj = new json();
 
-            var ProfileList = JsonConvert.DeserializeObject<List<user>>(obj.jsonformat);
+            var ProfileList = JsonConvert.DeserializeObject<List<objek>>(obj.jsonformat);
             var ArticleList = JsonConvert.DeserializeObject<List<articles>>(obj.jsonformat);
 
             System.Console.WriteLine();
@@ -69,23 +69,24 @@ namespace Json_Task
 
             }
 
-            // Console.WriteLine();
-            // Console.WriteLine("articles that contain Tips on the title :");
-            // foreach (var d in ArticleList)
-            // {     
-            //     if ((d.Title).Contains("Tips"))
-            //     {
-            //         Console.WriteLine(d.Id);
-            //     }
-            //     else
-            //     {
-            //         Console.WriteLine("no article contains tips on its title");
-            //     }
-            // }
+            Console.WriteLine();
+            Console.WriteLine("articles that contain Tips on the title :");
+            foreach (var d in ProfileList)
+            {
+                foreach (var item in d.ArticleList)
+                    if ((item.Title).Contains("Tips"))
+                    {
+                        Console.WriteLine(item.Title);
+                    }
+                    else
+                    {
+                        break;
+                    }
+            }
 
             Console.WriteLine();
             int year;
-            Console.WriteLine("article that published before 2019 :");
+            Console.WriteLine("article that published before August 2019 :"); //SHOULD BEFORE MONT-YEAR
             foreach (var b in ArticleList)
             {
                 year = (b.Published).Year;
@@ -219,13 +220,13 @@ namespace Json_Task
         public DateTime Published { get; set; }
     }
 
-    class user
+    class objek
     {
         [JsonProperty("username")]
         public string Username { get; set; }
 
-        [JsonProperty("article")]
-        public articles articles { get; set; }
+        [JsonProperty("articles")]
+        public List<articles> ArticleList { get; set; } = new List<articles>();
 
         [JsonProperty("profile")]
         public profile profile { get; set; }

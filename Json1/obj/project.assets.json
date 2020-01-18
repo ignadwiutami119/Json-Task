@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\learnC#\\Json\\Json-Task\\Json Task.csproj",
+      "projectUniqueName": "G:\\learnC#\\Json\\Json-Task\\Json1\\Json Task.csproj",
       "projectName": "Json Task",
-      "projectPath": "G:\\learnC#\\Json\\Json-Task\\Json Task.csproj",
+      "projectPath": "G:\\learnC#\\Json\\Json-Task\\Json1\\Json Task.csproj",
       "packagesPath": "C:\\Users\\Igna Dwi Utami\\.nuget\\packages\\",
-      "outputPath": "G:\\learnC#\\Json\\Json-Task\\obj\\",
+      "outputPath": "G:\\learnC#\\Json\\Json-Task\\Json1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Igna Dwi Utami\\AppData\\Roaming\\NuGet\\NuGet.Config"

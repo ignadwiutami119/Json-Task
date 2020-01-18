@@ -97,23 +97,22 @@ namespace Json_Task2
             }
 
 
-            string lowerPrice() {
-              string hasil = "";
-              int Ari = AriPrice();
-              int Annis = AnnisPrice();
-              int Ririn = RirinPrice();
+            string lowerPrice()
+            {
+                string hasil = "";
 
-              Dictionary<string,int> list = new Dictionary<string, int>(){
+                Dictionary<string, int> list = new Dictionary<string, int>(){
                 {"Ari",AriPrice()},
                 {"Annis",AnnisPrice()},
                 {"Ririn",RirinPrice()}
               };
 
-              foreach(KeyValuePair<string,int>item in list)
-              if(item.Value < 300000) {
-                hasil += item.Key +"\n";
-              }
-              return hasil;
+                foreach (KeyValuePair<string, int> item in list)
+                    if (item.Value < 300000)
+                    {
+                        hasil += item.Key + "\n";
+                    }
+                return hasil;
             }
         }
     }
