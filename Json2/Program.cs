@@ -39,9 +39,13 @@ namespace Json_Task2
 
             System.Console.WriteLine();
             System.Console.WriteLine("Grand total of item that purcashed by Ari : ");
-            Console.WriteLine(SumPrice());
+            Console.WriteLine(AriPrice());
 
-            int SumPrice()
+            System.Console.WriteLine();
+            System.Console.WriteLine("People who have purchases with grand total lower than 300000 : ");
+            Console.WriteLine(lowerPrice());
+
+            int AriPrice()
             {
                 int sum = 0;
                 foreach (var a in ObjekList)
@@ -56,10 +60,60 @@ namespace Json_Task2
                         //     }
                         // }
                         foreach (var b in a.ItemList)
-                            sum += ((b.Price)*(b.Quantity));
+                            sum += ((b.Price) * (b.Quantity));
                     }
                 }
                 return sum;
+            }
+
+            int AnnisPrice()
+            {
+                int sum = 0;
+                foreach (var a in ObjekList)
+                {
+                    if ((a.Customer.Name).Contains("Annis"))
+                    {
+
+                        foreach (var b in a.ItemList)
+                            sum += ((b.Price) * (b.Quantity));
+                    }
+                }
+                return sum;
+            }
+
+            int RirinPrice()
+            {
+                int sum = 0;
+                foreach (var a in ObjekList)
+                {
+                    if ((a.Customer.Name).Contains("Ririn"))
+                    {
+
+                        foreach (var b in a.ItemList)
+                            sum += ((b.Price) * (b.Quantity));
+                    }
+                }
+                return sum;
+            }
+
+
+            string lowerPrice() {
+              string hasil = "";
+              int Ari = AriPrice();
+              int Annis = AnnisPrice();
+              int Ririn = RirinPrice();
+
+              Dictionary<string,int> list = new Dictionary<string, int>(){
+                {"Ari",AriPrice()},
+                {"Annis",AnnisPrice()},
+                {"Ririn",RirinPrice()}
+              };
+
+              foreach(KeyValuePair<string,int>item in list)
+              if(item.Value < 300000) {
+                hasil += item.Key +"\n";
+              }
+              return hasil;
             }
         }
     }
