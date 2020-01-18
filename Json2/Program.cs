@@ -55,8 +55,8 @@ namespace Json_Task2
                         //         sum += Convert.ToInt32(b.Value);
                         //     }
                         // }
-                        foreach (var b in a.items)
-                        sum += items.Id;
+                        foreach (var b in a.ItemList)
+                            sum += ((b.Price)*(b.Quantity));
                     }
                 }
                 return sum;
@@ -147,21 +147,21 @@ namespace Json_Task2
         public customer Customer { get; set; }
 
         [JsonProperty("items")]
-        public ArrayList items { get; set; }
+        public List<items> ItemList { get; set; } = new List<items>();
     }
 
-    public static class items
+    public class items
     {
         [JsonProperty("id")]
-        public static int Id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("name")]
-        public static string Name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("qty")]
-        public static string Quantity { get; set; }
+        public int Quantity { get; set; }
 
         [JsonProperty("price")]
-        public static int Price { get; set; }
+        public int Price { get; set; }
     }
 }
