@@ -14,7 +14,6 @@ namespace Json_Task
             json obj = new json();
 
             var ObjekList = JsonConvert.DeserializeObject<List<objek>>(obj.jsonformat);
-            var ArticleList = JsonConvert.DeserializeObject<List<articles>>(obj.jsonformat);
 
             System.Console.WriteLine();
             System.Console.WriteLine("--- DESERIALIZED FIRST JSON FORMAT ---");
@@ -24,7 +23,7 @@ namespace Json_Task
             foreach (var a in ObjekList)
             {
                 if ((a.profile.Phones).Count == 0)
-                    Console.WriteLine(a.profile.Fullname);
+                    Console.WriteLine("- " + a.profile.Fullname);
             }
 
             Console.WriteLine();
@@ -32,7 +31,7 @@ namespace Json_Task
             foreach (var a in ObjekList)
             {
                 if ((a.Id) != 0)
-                    Console.WriteLine(a.profile.Fullname);
+                    Console.WriteLine("- " + a.profile.Fullname);
             }
 
             Console.WriteLine();
@@ -40,15 +39,17 @@ namespace Json_Task
             foreach (var b in ObjekList)
             {
                 if ((b.profile.Fullname).Contains("Annis"))
-                    Console.WriteLine(b.profile.Fullname);
+                    Console.WriteLine("- " + b.profile.Fullname);
             }
 
             Console.WriteLine();
             Console.WriteLine("User who have articles on year 2020 :");
-            if(Article2020()=="") {
-                Console.WriteLine("No one have article on 2020");
+            if (Article2020() == "")
+            {
+                Console.WriteLine("** No one have article on 2020 **");
             }
-            else {
+            else
+            {
                 Console.WriteLine(Article2020());
             }
 
@@ -58,7 +59,7 @@ namespace Json_Task
             {
                 if (Convert.ToString((b.profile.BirthDay)).Contains("1986"))
                 {
-                    Console.WriteLine(b.Username);
+                    Console.WriteLine("- " + b.Username);
                 }
 
             }
@@ -70,7 +71,7 @@ namespace Json_Task
                 foreach (var item in d.ArticleList)
                     if ((item.Title).Contains("Tips"))
                     {
-                        Console.WriteLine(item.Title);
+                        Console.WriteLine("- " + item.Title);
                     }
                     else
                     {
@@ -79,7 +80,7 @@ namespace Json_Task
             }
 
             Console.WriteLine();
-            Console.WriteLine("Article that published before August 2019 :"); //SHOULD BEFORE MONT-YEAR
+            Console.WriteLine("Article that published before August 2019 :");
             if (publishBefore() == "")
             {
                 System.Console.WriteLine("No article published before August 2019");
@@ -93,6 +94,7 @@ namespace Json_Task
             {
                 int year;
                 int month;
+                int number = 0;
                 string hasil = "";
                 foreach (var b in ObjekList)
                 {
@@ -102,7 +104,8 @@ namespace Json_Task
                         month = (item.Published).Month;
                         if (year == 2019 && month < 8)
                         {
-                            hasil += item.Title + "\n";
+                            number++;
+                            hasil += number + ". " + item.Title + "\n";
                         }
                     }
                 }
@@ -113,6 +116,7 @@ namespace Json_Task
             {
                 int year;
                 string hasil = "";
+                int number = 0;
                 foreach (var b in ObjekList)
                 {
                     foreach (var item in b.ArticleList)
@@ -120,9 +124,9 @@ namespace Json_Task
                         year = (item.Published).Year;
                         if (year == 2020)
                         {
-                            hasil += b.Username +"\n";
+                            number++;
+                            hasil += number + ". " + b.Username + "\n";
                         }
-                        else { break; }
                     }
                 }
                 return hasil;
