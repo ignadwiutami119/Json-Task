@@ -13,54 +13,48 @@ namespace Json_Task
 
             json obj = new json();
 
-            var ProfileList = JsonConvert.DeserializeObject<List<objek>>(obj.jsonformat);
+            var ObjekList = JsonConvert.DeserializeObject<List<objek>>(obj.jsonformat);
             var ArticleList = JsonConvert.DeserializeObject<List<articles>>(obj.jsonformat);
 
             System.Console.WriteLine();
             System.Console.WriteLine("--- DESERIALIZED FIRST JSON FORMAT ---");
             System.Console.WriteLine();
 
-            Console.WriteLine("user who doesn't have any phone number :");
-            foreach (var a in ProfileList)
+            Console.WriteLine("User who doesn't have any phone number :");
+            foreach (var a in ObjekList)
             {
                 if ((a.profile.Phones).Count == 0)
-                    Console.WriteLine(a.Username);
+                    Console.WriteLine(a.profile.Fullname);
             }
 
             Console.WriteLine();
-            Console.WriteLine("user who have article (show in id) :");
-            foreach (var a in ArticleList)
+            Console.WriteLine("User who have article :");
+            foreach (var a in ObjekList)
             {
                 if ((a.Id) != 0)
-                    Console.WriteLine(a.Id);
+                    Console.WriteLine(a.profile.Fullname);
             }
 
             Console.WriteLine();
-            Console.WriteLine("user who have annis in their name :");
-            foreach (var b in ProfileList)
+            Console.WriteLine("User who have annis in their name :");
+            foreach (var b in ObjekList)
             {
                 if ((b.profile.Fullname).Contains("Annis"))
-                    Console.WriteLine(b.Username);
+                    Console.WriteLine(b.profile.Fullname);
             }
 
             Console.WriteLine();
-            Console.WriteLine("user who have articles on year 2020 :");
-            foreach (var b in ArticleList)
-            {
-                if (Convert.ToString((b.Published)).Contains("2019"))
-                {
-                    Console.WriteLine(b.Id);
-                }
-                else
-                {
-                    Console.WriteLine("no one publishing article on 2020");
-                    break;
-                }
+            Console.WriteLine("User who have articles on year 2020 :");
+            if(Article2020()=="") {
+                Console.WriteLine("No one have article on 2020");
+            }
+            else {
+                Console.WriteLine(Article2020());
             }
 
             Console.WriteLine();
-            Console.WriteLine("user who are born on 1986 :");
-            foreach (var b in ProfileList)
+            Console.WriteLine("User who are born on 1986 :");
+            foreach (var b in ObjekList)
             {
                 if (Convert.ToString((b.profile.BirthDay)).Contains("1986"))
                 {
@@ -70,8 +64,8 @@ namespace Json_Task
             }
 
             Console.WriteLine();
-            Console.WriteLine("articles that contain Tips on the title :");
-            foreach (var d in ProfileList)
+            Console.WriteLine("Articles that contain Tips on the title :");
+            foreach (var d in ObjekList)
             {
                 foreach (var item in d.ArticleList)
                     if ((item.Title).Contains("Tips"))
@@ -85,20 +79,53 @@ namespace Json_Task
             }
 
             Console.WriteLine();
-            int year;
-            Console.WriteLine("article that published before August 2019 :"); //SHOULD BEFORE MONT-YEAR
-            foreach (var b in ArticleList)
+            Console.WriteLine("Article that published before August 2019 :"); //SHOULD BEFORE MONT-YEAR
+            if (publishBefore() == "")
             {
-                year = (b.Published).Year;
-                if (year == 2019)
+                System.Console.WriteLine("No article published before August 2019");
+            }
+            else
+            {
+                System.Console.WriteLine(publishBefore());
+            }
+
+            string publishBefore()
+            {
+                int year;
+                int month;
+                string hasil = "";
+                foreach (var b in ObjekList)
                 {
-                    Console.WriteLine(b.Title);
+                    foreach (var item in b.ArticleList)
+                    {
+                        year = (item.Published).Year;
+                        month = (item.Published).Month;
+                        if (year == 2019 && month < 8)
+                        {
+                            hasil += item.Title + "\n";
+                        }
+                    }
                 }
-                else
+                return hasil;
+            }
+
+            string Article2020()
+            {
+                int year;
+                string hasil = "";
+                foreach (var b in ObjekList)
                 {
-                    Console.WriteLine("no one publishing article before 2019");
-                    break;
+                    foreach (var item in b.ArticleList)
+                    {
+                        year = (item.Published).Year;
+                        if (year == 2020)
+                        {
+                            hasil += b.Username +"\n";
+                        }
+                        else { break; }
+                    }
                 }
+                return hasil;
             }
 
         }
@@ -222,16 +249,16 @@ namespace Json_Task
 
     class objek
     {
+        [JsonProperty("id")]
+        public int Id { get; set; }
+
         [JsonProperty("username")]
         public string Username { get; set; }
 
+        [JsonProperty("profile")]
+        public profile profile { get; set; } = new profile();
+
         [JsonProperty("articles")]
         public List<articles> ArticleList { get; set; } = new List<articles>();
-
-        [JsonProperty("profile")]
-        public profile profile { get; set; }
-
-        [JsonProperty("id")]
-        public int Id { get; set; }
     }
 }
