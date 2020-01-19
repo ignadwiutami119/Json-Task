@@ -1,0 +1,13 @@
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Json3.exe
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Json3.deps.json
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Json3.runtimeconfig.json
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Json3.runtimeconfig.dev.json
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Json3.dll
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Json3.pdb
+G:\learnC#\Json\Json-Task\Json3\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+G:\learnC#\Json\Json-Task\Json3\obj\Debug\netcoreapp3.0\Json3.csprojAssemblyReference.cache
+G:\learnC#\Json\Json-Task\Json3\obj\Debug\netcoreapp3.0\Json3.AssemblyInfoInputs.cache
+G:\learnC#\Json\Json-Task\Json3\obj\Debug\netcoreapp3.0\Json3.AssemblyInfo.cs
+G:\learnC#\Json\Json-Task\Json3\obj\Debug\netcoreapp3.0\Json3.csproj.CopyComplete
+G:\learnC#\Json\Json-Task\Json3\obj\Debug\netcoreapp3.0\Json3.dll
+G:\learnC#\Json\Json-Task\Json3\obj\Debug\netcoreapp3.0\Json3.pdb
