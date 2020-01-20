@@ -1,15 +1,12 @@
 ﻿using System;
-using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace Json3
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            String jsonformat = @"[
+namespace Json3 {
+  class Program {
+    static void Main (string[] args) {
+      String jsonformat = @"[
   {
     ""inventory_id"": 9382,
     ""name"": ""Brown Chair"",
@@ -83,107 +80,97 @@ namespace Json3
   }
 ]";
 
-            var ObjekList = JsonConvert.DeserializeObject<List<objek>>(jsonformat);
+      var ObjekList = JsonConvert.DeserializeObject<List<objek>> (jsonformat);
 
-            System.Console.WriteLine("\nItem in Sangkuriang room : ");
-            System.Console.WriteLine(totalItem() + "\n");
-            System.Console.WriteLine("All electronic devices : ");
-            System.Console.WriteLine(findItem("electronic") + "\n");
-            System.Console.WriteLine("All furniture : ");
-            System.Console.WriteLine(findItem("furniture") + "\n");
-            System.Console.WriteLine("All item with brown color : ");
-            System.Console.WriteLine(findBrown() + "\n");
+      Console.WriteLine ("\n--------DESERIALIZED THIRD JSON FORMAT--------\n");
+      Console.WriteLine ("\nItem in Sangkuriang room : ");
+      Console.WriteLine (totalItem () + "\n");
+      Console.WriteLine ("All electronic devices : ");
+      Console.WriteLine (findItem ("electronic") + "\n");
+      Console.WriteLine ("All furniture : ");
+      Console.WriteLine (findItem ("furniture") + "\n");
+      Console.WriteLine ("All item was purcashed at 16 Januari 2020 : ");
+      Console.WriteLine (findPurcashed () + "\n");
+      Console.WriteLine ("All item with brown color : ");
+      Console.WriteLine (findBrown () + "\n");
 
-            int totalItem()
-            {
-                int total = 0;
-                foreach (var a in ObjekList)
-                {
-                    if (a.Placement.Name == "Sangkuriang")
-                    {
-                        total++;
-                        System.Console.WriteLine(total + ". " + a.Name);
-                    }
-                }
-                System.Console.WriteLine("Total item : ");
-                return total;
-            }
-
-            string findItem(string input)
-            {
-                string hasil = "";
-                int number = 0;
-                foreach (var a in ObjekList)
-                {
-                    if (a.Type == input)
-                    {
-                        number++;
-                        hasil += number + ". " + a.Name + "\n";
-                    }
-                }
-                return hasil;
-            }
-
-            // string findPurcashed(string input)
-            // {
-            //     string hasil = "";
-            //     int number = 0;
-            //     foreach (var a in ObjekList)
-            //     {
-            //         if (a.Type == input)
-            //         {
-            //             number++;
-            //             hasil += number + ". " + a.Name + "\n";
-            //         }
-            //     }
-            //     return hasil;
-            // }
-
-            string findBrown()
-            {
-                string hasil = "";
-                int number = 0;
-                foreach (var a in ObjekList)
-                {
-                    if (a.Tags.Contains("brown"))
-                    {
-                        number++;
-                        hasil += number + ". " + a.Name + "\n";
-                    }
-                }
-                return hasil;
-            }
-
+      int totalItem () {
+        int total = 0;
+        foreach (var a in ObjekList) {
+          if (a.Placement.Name == "Sangkuriang") {
+            total++;
+            System.Console.WriteLine (total + ". " + a.Name);
+          }
         }
+        System.Console.WriteLine ("Total item : ");
+        return total;
+      }
+
+      string findItem (string input) {
+        string hasil = "";
+        int number = 0;
+        foreach (var a in ObjekList) {
+          if (a.Type == input) {
+            number++;
+            hasil += number + ". " + a.Name + "\n";
+          }
+        }
+        return hasil;
+      }
+
+      string findPurcashed () {
+        string hasil = "";
+        int number = 0;
+        // DateTime dtDateTime = new DateTime ();
+        foreach (var obj in ObjekList) {
+          var tgl = DateTimeOffset.FromUnixTimeSeconds(obj.Purcashed).DateTime;
+          if (tgl.Day==16 && tgl.Month == 1 && tgl.Year == 2020) {
+            number++;
+            hasil += number + ". " + obj.Name + "\n";
+          }
+        }
+        return hasil;
+      }
+
+      string findBrown () {
+        string hasil = "";
+        int number = 0;
+        foreach (var a in ObjekList) {
+          if (a.Tags.Contains ("brown")) {
+            number++;
+            hasil += number + ". " + a.Name + "\n";
+          }
+        }
+        return hasil;
+      }
     }
+  }
 
-    class objek
-    {
-        [JsonProperty("inventory_id")]
-        public int Id { get; set; }
+  class objek {
+    [JsonProperty ("inventory_id")]
+    public int Id { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+    [JsonProperty ("name")]
+    public string Name { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
+    [JsonProperty ("type")]
+    public string Type { get; set; }
 
-        [JsonProperty("tags")]
-        public List<string> Tags { get; set; } = new List<string>();
+    [JsonProperty ("tags")]
+    public List<string> Tags { get; set; } = new List<string> ();
 
-        [JsonProperty("purcashed_at")]
-        public int Purcashed { get; set; }
+    [JsonProperty ("purchased_at")]
+    public long Purcashed { get; set; }
 
-        [JsonProperty("placement")]
-        public placement Placement { get; set; } = new placement();
-    }
+    [JsonProperty ("placement")]
+    public placement Placement { get; set; } = new placement ();
+  }
 
-    class placement
-    {
-        [JsonProperty("room_id")]
-        public int Id { get; set; }
+  class placement {
+    [JsonProperty ("room_id")]
+    public int Id { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
-    }
+    [JsonProperty ("name")]
+    public string Name { get; set; }
+  }
 }

@@ -37,3 +37,16 @@ G:\learnC#\Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.AssemblyInfo.c
 G:\learnC#\Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.csproj.CopyComplete
 G:\learnC#\Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.dll
 G:\learnC#\Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.pdb
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Json Task.exe
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Json Task.deps.json
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Json Task.runtimeconfig.json
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Json Task.runtimeconfig.dev.json
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Json Task.dll
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Json Task.pdb
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.csprojAssemblyReference.cache
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.AssemblyInfoInputs.cache
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.AssemblyInfo.cs
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.csproj.CopyComplete
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.dll
+D:\TRAININGC#\20Januari Json\Json-Task\Json1\obj\Debug\netcoreapp3.0\Json Task.pdb

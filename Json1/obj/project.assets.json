@@ -52,19 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Igna Dwi Utami\\.nuget\\packages\\": {}
+    "D:\\Users\\bsi50132\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\learnC#\\Json\\Json-Task\\Json1\\Json Task.csproj",
+      "projectUniqueName": "D:\\TRAININGC#\\20Januari Json\\Json-Task\\Json1\\Json Task.csproj",
       "projectName": "Json Task",
-      "projectPath": "G:\\learnC#\\Json\\Json-Task\\Json1\\Json Task.csproj",
-      "packagesPath": "C:\\Users\\Igna Dwi Utami\\.nuget\\packages\\",
-      "outputPath": "G:\\learnC#\\Json\\Json-Task\\Json1\\obj\\",
+      "projectPath": "D:\\TRAININGC#\\20Januari Json\\Json-Task\\Json1\\Json Task.csproj",
+      "packagesPath": "D:\\Users\\bsi50132\\.nuget\\packages\\",
+      "outputPath": "D:\\TRAININGC#\\20Januari Json\\Json-Task\\Json1\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Igna Dwi Utami\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "D:\\Users\\bsi50132\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
@@ -106,7 +110,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
